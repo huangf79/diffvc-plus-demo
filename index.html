@@ -35,35 +35,35 @@
                 Experimental results demonstrate that our models significantly outperform the baseline in terms of the intelligibility and naturalness of converted speech, while achieving competitive anonymization performance through flexible approaches.</p>
 
             <!-- part 1 -->
-<!--             <br><br>
-            <h2 class="wrapper">1 New Maximum Likelihood SDE Solver</h2>
-            <table class="wrapper">
-                <tbody style="margin-left: auto; margin-right: auto; text-align: center;">
-                    <tr>
-                        <td>Euler-Maruyama</td>
-                        <td>Probability Flow</td>
-                        <td>Maximum Likelihood (τ = 0.5)</td>
-                        <td>Maximum Likelihood (τ = 1.0)</td>
-                    </tr>
-                    <tr>
-                        <td><img src="resources/img/em.png" style="width: 95%; height: auto; padding: 0px;"/></td>
-                        <td><img src="resources/img/pf.png" style="width: 95%; height: auto; padding: 0px;"/></td>
-                        <td><img src="resources/img/mlh.png" style="width: 95%; height: auto; padding: 0px;"/></td>
-                        <td><img src="resources/img/mlf.png" style="width: 95%; height: auto; padding: 0px;"/></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="wrapper" style="max-width: 500px; text-align: center; font-size: smaller; padding-top: 5px;">Figure 1. CIFAR10 images randomly sampled from the same DPM using only 10 iterations of reverse diffusion with different solvers. For Maximum Likelihood Sampling τ denotes the step when our new scheme was turned on (standard Euler-Maruyama solver is used when t > τ).</p>
-            <p class="wrapper">Standard Euler-Maruyama method usually used to solve reverse diffusion SDE in DPMs introduces large discretization error when the number of iterations is extremely small and, generally speaking, is biased. As a consequence DPM output distribution is not the same as data distribution even when score function is trained till optimality. Instead, we propose to use <b>a novel solver</b> that is optimal in terms of likelihood of forward diffusion trajectories. Figure 1 shows that it significantly outperforms standard DPM sampling techniques when the number of solver steps is small.</p>
-            <p class="wrapper">Our Fast Maximum Likelihood Solver <b>does not require</b>:</p>
-            <div class="wrapper" style="padding-left: 50px;">
-                <ul class="wrapper" style="list-style-position: inside; padding-top: 0px;">
-                    <li>Additional computational costs</li>
-                    <li>Exhaustive noise schedule search for small number of iterations</li>
-                    <li>Re-training of the DPM</li>
-                </ul>
-            </div>
-            <p class="wrapper">Check out a quick <a href="">guide</a> (Google Colab, in progress) on CIFAR10 how to add our solver to your DPM.</p> -->
+<!--             <br><br> -->
+<!--             <h2 class="wrapper">1 New Maximum Likelihood SDE Solver</h2> -->
+<!--             <table class="wrapper"> -->
+<!--                 <tbody style="margin-left: auto; margin-right: auto; text-align: center;"> -->
+<!--                     <tr> -->
+<!--                         <td>Euler-Maruyama</td> -->
+<!--                         <td>Probability Flow</td> -->
+<!--                         <td>Maximum Likelihood (τ = 0.5)</td> -->
+<!--                         <td>Maximum Likelihood (τ = 1.0)</td> -->
+<!--                     </tr> -->
+<!--                     <tr> -->
+<!--                         <td><img src="resources/img/em.png" style="width: 95%; height: auto; padding: 0px;"/></td> -->
+<!--                         <td><img src="resources/img/pf.png" style="width: 95%; height: auto; padding: 0px;"/></td> -->
+<!--                         <td><img src="resources/img/mlh.png" style="width: 95%; height: auto; padding: 0px;"/></td> -->
+<!--                         <td><img src="resources/img/mlf.png" style="width: 95%; height: auto; padding: 0px;"/></td> -->
+<!--                     </tr> -->
+<!--                 </tbody> -->
+<!--             </table> -->
+<!--             <p class="wrapper" style="max-width: 500px; text-align: center; font-size: smaller; padding-top: 5px;">Figure 1. CIFAR10 images randomly sampled from the same DPM using only 10 iterations of reverse diffusion with different solvers. For Maximum Likelihood Sampling τ denotes the step when our new scheme was turned on (standard Euler-Maruyama solver is used when t > τ).</p> -->
+<!--             <p class="wrapper">Standard Euler-Maruyama method usually used to solve reverse diffusion SDE in DPMs introduces large discretization error when the number of iterations is extremely small and, generally speaking, is biased. As a consequence DPM output distribution is not the same as data distribution even when score function is trained till optimality. Instead, we propose to use <b>a novel solver</b> that is optimal in terms of likelihood of forward diffusion trajectories. Figure 1 shows that it significantly outperforms standard DPM sampling techniques when the number of solver steps is small.</p> -->
+<!--             <p class="wrapper">Our Fast Maximum Likelihood Solver <b>does not require</b>:</p> -->
+<!--             <div class="wrapper" style="padding-left: 50px;"> -->
+<!--                 <ul class="wrapper" style="list-style-position: inside; padding-top: 0px;"> -->
+<!--                     <li>Additional computational costs</li> -->
+<!--                     <li>Exhaustive noise schedule search for small number of iterations</li> -->
+<!--                     <li>Re-training of the DPM</li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--             <p class="wrapper">Check out a quick <a href="">guide</a> (Google Colab, in progress) on CIFAR10 how to add our solver to your DPM.</p> --> -->
 
             <!-- 2 MOS AUDIO SAMPLES -->
             <br><br>
