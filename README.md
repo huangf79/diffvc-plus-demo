@@ -1,3 +1,3 @@
-# diffvc-fast-ml-solver.github.io
+# Demo page of "DiffVC+: Improving Diffusion-based Voice Conversion for Speaker Anonymization".
 
-Demo page for the paper "Diffusion-Based Voice Conversion With Fast Maximum Likelihood Sampling Scheme".
+codes are modified from https://github.com/diffvc-fast-ml-solver/diffvc-fast-ml-solver.github.io
