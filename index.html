@@ -1,0 +1,283 @@
+<html>
+    <!-- HEADER -->
+    <head>
+        <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
+        <title>Demo page of "DiffVC+: Improving Diffusion-based Voice Conversion for Speaker Anonymization" </title>
+        <link rel="icon" href="resources/img/icon.png">
+        <link rel="stylesheet" href="css/allsetting.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- MAIN BODY -->
+    <body>
+        <div class="main">
+            <!-- HEADER -->
+            <div class="header-wrapper" style="background-color: rgb(4, 84, 33); color: whitesmoke;">
+            <br>
+            <h1 class="wrapper" style="font-weight: bold;">DiffVC+: Improving Diffusion-based Voice Conversion for Speaker Anonymization.</h1>
+            <p class="wrapper" style="font-size: large;">Submitted to INTERSPEECH 2024.</p>
+            <br><br>
+            </div>
+            <br><br>
+            <!-- ABSTRACT -->
+            <h2 class="wrapper" style="color: rgb(4, 84, 33)">Abstract</h2>
+            <p class="wrapper">The increasing risks of speech data leakage prompt growing concerns about voice privacy. 
+                This paper proposes DiffVC+, a speaker anonymization model designed to preserve speech data privacy. 
+                It operates as a diffusion-based voice conversion model that suppresses identity information by converting the speaker's voice. 
+                DiffVC+ comprises an SSL content encoder extracting the source speech content, a speaker encoder and an embedding generator that both supply the target speaker embedding, along with a DPM-based decoder generating the converted speech. 
+                Furthermore, we propose DiffVC+ <b><i>light</i></b> and DiffVC+ <b><i>decoupled</i></b> for edge-side and server-side deployments, respectively. 
+                Experimental results demonstrate that our models significantly outperform the baseline in terms of the intelligibility and naturalness of converted speech, while achieving competitive anonymization performance through flexible approaches.
+            </p>
+            <br><br>
+            <div style="margin-left: auto; margin-right: auto; text-align: center;">
+                <img src="resources/img/overview.png" style="width: 830px; height: auto; padding: 0px;"/>
+                <br><br>
+                <p class="wrapper" style="max-width: 500px; text-align: center; font-size: small; padding-top: 5px;">Figure 1. The overview of DiffVC+.</p>
+            </div>
+
+            <!-- 1 U2U -->
+            <br><br>
+            <h2 class="wrapper" style="color: rgb(4, 84, 33)">1. Unseen to Unseen Voice Conversion</h2>
+            <p class="wrapper">In this section we provide converted speeches between 2 male speakers and 2 female speakers. 
+                All these speakers and the sentences read by them are unseen during training. (streaming: streaming inference)
+            </p>
+            <div class="wrapper" style="text-align: center;">
+                <span class="choose">Choose a source speaker:</span>
+                
+                    <div class="dropdown" id="sourceDropdown">
+                    <div class="select">
+                        <span>Select</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                        <li id="p238">p238 (F)</li>
+                        <li id="p241">p241 (M)</li>
+                        <li id="p243">p243 (M)</li>
+                        <li id="p294">p294 (F)</li>
+                    </ul>
+                    </div>
+            </div>
+            <div class="wrapper" style="text-align: center;">
+                <span class="choose">Choose a target speaker:</span>
+                
+                    <div class="dropdown" id="targetDropdown">
+                    <div class="select">
+                        <span>Select</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                        <li id="p238">p238 (F)</li>
+                        <li id="p241">p241 (M)</li>
+                        <li id="p243">p243 (M)</li>
+                        <li id="p294">p294 (F)</li>
+                    </ul>
+                    </div>
+            </div>
+            <script language="JavaScript" type="text/javascript" src="js/U2U.js"></script>
+
+            <div class="vcpair">
+            <table class="wrapper"> 
+                <tbody style="margin-right: auto; text-align: center;"> 
+                    <tr> 
+                        <td></td> 
+                        <td>001</td> 
+                        <td>002</td> 
+                        <td>003</td> 
+                        <td>004</td> 
+                        <td>005</td> 
+                    </tr>
+                    <tr> 
+                        <td><b>Source</b></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td><b>Target</b></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr>  
+                    <tr> 
+                        <td style="font-size: medium; text-align: right;">DiffVC</td> 
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td style="font-size: medium; text-align: right;">DiffVC+</td> 
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>light</b></i></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>light</b></i> streaming</td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                    <tr> 
+                        <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>decoupled</b></i></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td> 
+                        <td><audio controls=""><source src=""></audio></td>
+                        <td><audio controls=""><source src=""></audio></td>
+                    </tr> 
+                    <tr> 
+                        <td><br></td> 
+                    </tr> 
+                </tbody> 
+            </table> 
+            </div>
+
+            <br><br><br>
+            <!-- 2 U2N -->
+            <h2 class="wrapper" style="color: rgb(4, 84, 33)">2. Voice Conversion without Reference Speeches</h2>    
+            <p class="wrapper">In this section we provide converted speeches of the above 4 speakers, which are generated without reference speeches. 
+                We use the embedding generator to generate target speaker embeddings for each source speaker. 
+                Additionally, DiffVC+ <b><i>decoupled</i></b> can convert speeches in an unconditional generation manner, not relying on the embedding generator. 
+                (uncond: unconditional generation)
+            </p>    
+            <div class="wrapper" style="text-align: center;">
+                <span class="choose">Choose a source speaker:</span>
+                
+                    <div class="dropdown1" id="sourceDropdown1">
+                    <div class="select">
+                        <span>Select</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                        <li id="p238">p238 (F)</li>
+                        <li id="p241">p241 (M)</li>
+                        <li id="p243">p243 (M)</li>
+                        <li id="p294">p294 (F)</li>
+                    </ul>
+                    </div>
+            </div>
+
+            <script language="JavaScript" type="text/javascript" src="js/U2N.js"></script>            
+
+            <div class="vcpair1">
+                <table class="wrapper"> 
+                    <tbody style="margin-right: auto; text-align: center;"> 
+                        <tr> 
+                            <td></td> 
+                            <td>001</td> 
+                            <td>002</td> 
+                            <td>003</td> 
+                            <td>004</td> 
+                            <td>005</td> 
+                        </tr>
+                        <tr> 
+                            <td><b>Source</b></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                        <tr> 
+                            <td style="font-size: medium; text-align: right;">DiffVC+</td> 
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                        <tr> 
+                            <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>light</b></i></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                        <tr> 
+                            <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>decoupled</b></i></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                        <tr> 
+                            <td style="font-size: medium; text-align: right;">DiffVC+ <i><b>decoupled</b></i> uncond</td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td> 
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                        </tr> 
+                        <tr> 
+                            <td><br></td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+                </div>
+            <br><br><br>
+        </div>
+        
+    </body>
+</html>
