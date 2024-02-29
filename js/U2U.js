@@ -59,7 +59,7 @@ $('.dropdown-menu li').click(function () {
 				<td><br></td> \
 			</tr> \
 			<tr> \
-				<td style="font-size: medium; text-align: right;">DiffVC</td> \
+				<td style="font-size: medium; text-align: right;">DiffVC (baseline)</td> \
 				<td><audio controls=""><source src="resources/audio/diffvc/' + src + '/' + src + '_' + tgt + '_001.wav"></audio></td> \
 				<td><audio controls=""><source src="resources/audio/diffvc/' + src + '/' + src + '_' + tgt + '_002.wav"></audio></td> \
 				<td><audio controls=""><source src="resources/audio/diffvc/' + src + '/' + src + '_' + tgt + '_003.wav"></audio></td> \
