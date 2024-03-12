@@ -25,12 +25,16 @@
             <br><br>
             <!-- ABSTRACT -->
             <h2 class="wrapper" style="color: rgb(4, 84, 33)">Abstract</h2>
-            <p class="wrapper">The increasing risks of speech data leakage prompt growing concerns about voice privacy. 
-                This paper proposes DiffVC+, a speaker anonymization model designed to preserve speech data privacy. 
-                It operates as a diffusion-based voice conversion model that suppresses identity information by converting the speaker's voice. 
-                DiffVC+ comprises an SSL content encoder extracting the source speech content, a speaker encoder and an embedding generator that both supply the target speaker embedding, along with a DPM-based decoder generating the converted speech. 
+            <p class="wrapper">
+                The increasing risks of speech data leakage prompt growing concerns about voice privacy. 
+                This paper proposes DiffVC+, a speaker anonymization model designed to preserve speech privacy. 
+                It operates as a diffusion-based voice conversion model that suppresses identity information by converting the speaker's voice through flexible approaches. 
+                DiffVC+ comprises a self-supervised learning (SSL) content encoder that effectively extracts the source speech content, 
+                a speaker encoder and an embedding generator that both supply the target speaker embedding, 
+                and a diffusion-based decoder generating the converted speech. 
                 Furthermore, we propose DiffVC+ <b><i>light</i></b> and DiffVC+ <b><i>decoupled</i></b> for edge-side and server-side deployments, respectively. 
-                Experimental results demonstrate that our models significantly outperform the baseline in terms of the intelligibility and naturalness of converted speech, while achieving competitive anonymization performance through flexible approaches.
+                Experimental results demonstrate that our models significantly outperform the baseline in terms of the intelligibility and naturalness of the converted speech, 
+                while achieving competitive anonymization performance.
             </p>
             <br><br>
             <div style="margin-left: auto; margin-right: auto; text-align: center;">
@@ -46,7 +50,7 @@
                 All these speakers and the sentences read by them are unseen during training. (streaming: streaming inference)
             </p>
             <div class="wrapper" style="text-align: center;">
-                <span class="choose">Choose a source speaker:</span>
+                <span class="choose"><b>Choose a source speaker:</b></span>
                 
                     <div class="dropdown" id="sourceDropdown">
                     <div class="select">
@@ -63,7 +67,7 @@
                     </div>
             </div>
             <div class="wrapper" style="text-align: center;">
-                <span class="choose">Choose a target speaker:</span>
+                <span class="choose"><b>Choose a target speaker:</b></span>
                 
                     <div class="dropdown" id="targetDropdown">
                     <div class="select">
